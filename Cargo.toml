@@ -1,0 +1,11 @@
+[package]
+name = "file_compare"
+authors = ["Oleg Potapenko"]
+version = "1.0.0"
+license = "MIT"
+categories = ["command-line-utilities"]
+description = "File compare - fast compare lines in two files ignoring relative order"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.31", features = ["derive"] }
