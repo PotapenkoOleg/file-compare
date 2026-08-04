@@ -43,6 +43,13 @@ The tool compares two text files line-by-line, finding lines present in one file
 
 **`src/clap_parser/mod.rs`** — CLI args via `clap` derive: `--first` / `-f`, `--second` / `-s`, `--ignore-case` / `-i`, `--render-html` / `-r`.
 
-**Known limitation:** duplicate lines in a file are silently overwritten in the trie — only the last occurrence's line number is kept. This is tracked with a `// TODO` in `main.rs`.
+`--ignore-case` is implemented by storing `to_uppercase()` of each line as the trie key, so the *original* text is never retained — diff output under this flag prints the uppercased form, not the file's original casing.
+
+**`src/trie/mod.rs`** — module wiring for the trie: declares the public `ternary_trie` submodule plus the three test modules (`tests`, `integration_tests`, `tests_original`). Each test file gates itself with an inner `#[cfg(test)] mod ...`.
+
+**Known limitations:**
+- Duplicate lines in a file are silently overwritten in the trie — only the last occurrence's line number is kept. Tracked with a `// TODO` in `main.rs`.
+- HTML output is not entity-escaped — lines containing `<`, `>`, `&`, or `"` will malform the table or inject markup when using `--render-html`.
+- Reported line numbers are 0-indexed (`enumerate()`), so the first line of a file prints as "line 0".
 
 **Test files** live in `src/trie/` alongside the implementation: `tests.rs` (unit), `integration_tests.rs`, and `tests_original.rs`. Sample input data is in `src/test_data/`.
