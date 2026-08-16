@@ -1,12 +1,11 @@
 use crate::clap_parser::Args;
-use crate::trie::ternary_trie::TernarySearchTrie;
 use clap::Parser;
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
+use ternary_trie::TernarySearchTrie;
 
 mod clap_parser;
-mod trie;
 
 fn main() {
     let args = Args::parse();

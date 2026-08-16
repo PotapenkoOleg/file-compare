@@ -1,0 +1,9 @@
+[package]
+name = "ternary_trie"
+authors = ["Oleg Potapenko"]
+version = "1.0.0"
+license = "MIT"
+description = "Ternary search trie - a generic string-keyed symbol table"
+edition = "2024"
+
+[dependencies]

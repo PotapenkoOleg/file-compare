@@ -13,6 +13,12 @@ pub struct TernarySearchTrie<E> {
     size: usize,
 }
 
+impl<E> Default for TernarySearchTrie<E> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<E> TernarySearchTrie<E> {
     pub fn new() -> Self {
         TernarySearchTrie {

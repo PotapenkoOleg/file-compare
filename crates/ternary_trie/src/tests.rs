@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::trie::ternary_trie::TernarySearchTrie;
+    use crate::TernarySearchTrie;
 
     #[test]
     fn test_basic_operations() {

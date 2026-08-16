@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests_original {
-    use crate::trie::ternary_trie::TernarySearchTrie;
+    use crate::TernarySearchTrie;
     use std::collections::HashMap;
 
     fn build_trie() -> TernarySearchTrie<i32> {
