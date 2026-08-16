@@ -1,6 +1,10 @@
 use crate::symbol_table::{PrefixSearch, SymbolTable};
 use std::cmp::Ordering;
 
+mod tests;
+mod tests_integration;
+mod tests_original;
+
 struct Node<E> {
     c: char,                      // Character stored at this node
     value: Option<E>,             // Value if this node represents a key

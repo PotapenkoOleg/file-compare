@@ -6,6 +6,3 @@ pub use patricia_trie::PatriciaTrie;
 pub use symbol_table::{PrefixSearch, SymbolTable};
 pub use ternary_trie::TernarySearchTrie;
 
-mod tests_integration;
-mod tests;
-mod tests_original;
