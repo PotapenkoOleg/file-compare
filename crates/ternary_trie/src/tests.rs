@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::TernarySearchTrie;
+    use crate::{PrefixSearch, SymbolTable, TernarySearchTrie};
 
     #[test]
     fn test_basic_operations() {

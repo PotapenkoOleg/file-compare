@@ -1,3 +1,4 @@
+use crate::symbol_table::{PrefixSearch, SymbolTable};
 use std::cmp::Ordering;
 
 struct Node<E> {
@@ -26,11 +27,10 @@ impl<E> TernarySearchTrie<E> {
             size: 0,
         }
     }
+}
 
-    pub fn put(&mut self, key: String, value: E)
-    where
-        E: Clone,
-    {
+impl<E: Clone> SymbolTable<E> for TernarySearchTrie<E> {
+    fn put(&mut self, key: String, value: E) {
         if key.is_empty() {
             return;
         }
@@ -43,10 +43,7 @@ impl<E> TernarySearchTrie<E> {
         }
     }
 
-    pub fn get(&self, key: &str) -> Option<E>
-    where
-        E: Clone,
-    {
+    fn get(&self, key: &str) -> Option<E> {
         if key.is_empty() {
             return None;
         }
@@ -61,10 +58,7 @@ impl<E> TernarySearchTrie<E> {
         }
     }
 
-    pub fn delete(&mut self, key: &str)
-    where
-        E: Clone,
-    {
+    fn delete(&mut self, key: &str) {
         if key.is_empty() {
             return;
         }
@@ -75,40 +69,33 @@ impl<E> TernarySearchTrie<E> {
         }
     }
 
-    pub fn contains(&self, key: &str) -> bool
-    where
-        E: Clone,
-    {
+    fn contains(&self, key: &str) -> bool {
         self.get(key).is_some()
     }
 
-    pub fn clear(&mut self) {
+    fn clear(&mut self) {
         self.root = None;
         self.size = 0;
     }
 
-    pub fn is_empty(&self) -> bool {
+    fn is_empty(&self) -> bool {
         self.size == 0
     }
 
-    pub fn get_size(&self) -> usize {
+    fn get_size(&self) -> usize {
         self.size
     }
 
-    pub fn get_all_keys(&self) -> Vec<String>
-    where
-        E: Clone,
-    {
+    fn get_all_keys(&self) -> Vec<String> {
         let mut result = Vec::new();
         let prefix = String::new();
         Self::collect_keys(&self.root, &mut result, &prefix);
         result
     }
+}
 
-    pub fn get_keys_with_prefix(&self, prefix: &str) -> Vec<String>
-    where
-        E: Clone,
-    {
+impl<E: Clone> PrefixSearch for TernarySearchTrie<E> {
+    fn get_keys_with_prefix(&self, prefix: &str) -> Vec<String> {
         if prefix.is_empty() {
             return self.get_all_keys();
         }
@@ -131,10 +118,7 @@ impl<E> TernarySearchTrie<E> {
         result
     }
 
-    pub fn longest_prefix_of(&self, prefix: &str) -> Option<String>
-    where
-        E: Clone,
-    {
+    fn longest_prefix_of(&self, prefix: &str) -> Option<String> {
         if prefix.is_empty() {
             return None;
         }

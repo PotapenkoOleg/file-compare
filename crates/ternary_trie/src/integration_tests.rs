@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod integration_tests {
-    use crate::TernarySearchTrie;
+    use crate::{PrefixSearch, SymbolTable, TernarySearchTrie};
 
     // Define a struct for testing with a custom type
     #[derive(Clone, Debug, PartialEq)]
