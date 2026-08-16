@@ -8,9 +8,9 @@ description = "File compare - fast compare lines in two files ignoring relative 
 edition = "2024"
 
 [workspace]
-members = ["crates/ternary_trie"]
-default-members = [".", "crates/ternary_trie"]
+members = ["crates/tries"]
+default-members = [".", "crates/tries"]
 
 [dependencies]
 clap = { version = "4.5.31", features = ["derive"] }
-ternary_trie = { path = "crates/ternary_trie" }
+tries = { path = "crates/tries" }

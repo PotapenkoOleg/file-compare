@@ -8,7 +8,7 @@
 //! Both traits are dyn-compatible:
 //!
 //! ```
-//! use ternary_trie::{PrefixSearch, SymbolTable, TernarySearchTrie};
+//! use tries::{PrefixSearch, SymbolTable, TernarySearchTrie};
 //!
 //! let mut trie = TernarySearchTrie::<u32>::new();
 //! trie.put("sea".to_string(), 2);
@@ -31,7 +31,7 @@
 /// # Examples
 ///
 /// ```
-/// use ternary_trie::{SymbolTable, TernarySearchTrie};
+/// use tries::{SymbolTable, TernarySearchTrie};
 ///
 /// let mut table = TernarySearchTrie::<u32>::new();
 /// table.put("shore".to_string(), 7);
@@ -73,7 +73,7 @@ pub trait SymbolTable<E: Clone> {
 /// # Examples
 ///
 /// ```
-/// use ternary_trie::{PrefixSearch, SymbolTable, TernarySearchTrie};
+/// use tries::{PrefixSearch, SymbolTable, TernarySearchTrie};
 ///
 /// let mut table = TernarySearchTrie::<u32>::new();
 /// for (i, word) in ["she", "shells", "shore", "sea"].iter().enumerate() {

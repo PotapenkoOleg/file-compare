@@ -10,7 +10,7 @@
 //! Both types are interchangeable through the traits:
 //!
 //! ```
-//! use ternary_trie::{PatriciaTrie, PrefixSearch, SymbolTable};
+//! use tries::{PatriciaTrie, PrefixSearch, SymbolTable};
 //!
 //! let mut trie = PatriciaTrie::<u32>::new();
 //! trie.put("application".to_string(), 1);
